@@ -1,0 +1,202 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  min-width: fit-content;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.button:focus {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+/* Variants */
+.primary {
+  background: var(--accent-gradient);
+  color: white;
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px var(--shadow-color);
+  filter: brightness(1.1);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
+}
+
+.secondary:hover {
+  color: var(--text-accent);
+  border-color: var(--text-accent);
+  transform: translateY(-2px);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.ghost:hover {
+  background: var(--glass-bg);
+  color: var(--text-primary);
+}
+
+.social {
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.social:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Sizes */
+.sm {
+  padding: 0.4rem 0.8rem;
+  font-size: var(--font-size-sm);
+}
+
+.md {
+  padding: 1rem 1.2rem;
+  font-size: var(--font-size-md);
+}
+
+.lg {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: var(--font-size-lg);
+}
+
+:global(.theme-light) .lg {
+  background: rgb(243 244 246 / 80%);
+  color: black;
+}
+
+.xl {
+  padding: 1.2rem 2.5rem;
+  font-size: var(--font-size-lg);
+}
+
+/* States */
+.loading {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  transform: none;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loadingText {
+  opacity: 0.7;
+}
+
+/* Switch button (for form switcher) */
+.switch {
+  flex: 1;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.switch.active {
+  background: var(--accent-gradient);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+/* Demo button */
+.demo {
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  color: #ffd700;
+  font-size: var(--font-size-sm);
+}
+
+.demo:hover {
+  background: rgba(255, 215, 0, 0.3);
+  transform: scale(1.05);
+}
+
+/* Animation for shake effect */
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .button {
+    font-size: var(--font-size-sm);
+    padding: 0.8rem 1rem;
+  }
+  
+  .lg, .xl {
+    padding: 1rem 1.5rem;
+    font-size: var(--font-size-md);
+  }
+}

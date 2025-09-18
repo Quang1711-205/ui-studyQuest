@@ -1,0 +1,33 @@
+:root {
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size: 16px;
+  --radius: 18px;
+
+  /* Light theme */
+  --color-bg: #f4f4f4;
+  --color-bg-secondary: #fff;
+  --color-text: #222;
+  --color-accent: #667eea;
+  --color-accent2: #ffd700;
+  --color-border: #e0e0e0;
+  --color-input-bg: #f9f9f9;
+  --color-input-border: #d0d0d0;
+  --color-shadow: 0 4px 16px rgba(102,126,234,0.08);
+}
+
+[data-theme='dark'] {
+  --color-bg: #0f0f23;
+  --color-bg-secondary: #181a2b;
+  --color-text: #fff;
+  --color-accent: #667eea;
+  --color-accent2: #ffd700;
+  --color-border: #23234a;
+  --color-input-bg: #181a2b;
+  --color-input-border: #23234a;
+  --color-shadow: 0 4px 16px rgba(102,126,234,0.18);
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-main);
+}
